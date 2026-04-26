@@ -2,21 +2,30 @@
 
 ## Descrição
 
-Este projeto faz parte de um desafio do curso Full Cycle.
+Este projeto faz parte dos desafios do curso Full Cycle com foco na aplicação prática de **Clean Architecture**.
 
-O objetivo é aplicar conceitos de **Clean Architecture**, implementando os **Use Cases da entidade Product** com DTOs, repositórios e testes.
+Atualmente o projeto possui:
 
-Foram implementados os seguintes casos de uso:
+### Use Cases de Product
 
-- Create Product
-- Find Product
-- List Product
-- Update Product
+Implementação de casos de uso seguindo os princípios da Clean Architecture para as entidades do sistema.
 
-Cada caso de uso possui:
+### API REST
 
-- Teste de unidade
-- Teste de integração
+Endpoints para:
+
+- Customer
+- Product
+
+### Testes
+
+- Testes unitários
+- Testes de integração
+- Testes E2E
+
+### Documentação
+
+- Swagger UI
 
 ---
 
@@ -24,9 +33,13 @@ Cada caso de uso possui:
 
 - TypeScript
 - Node.js
+- Express
 - Jest
+- Supertest
 - Sequelize
-- SQLite in-memory
+- Sequelize Typescript
+- SQLite (in-memory)
+- Swagger
 
 ---
 
@@ -42,4 +55,22 @@ npm install
 
 ```bash
 npm test
+```
+
+### Iniciar a API
+
+```bash
+npm run dev
+```
+
+#### A aplicação será iniciada em:
+
+```bash
+http://localhost:3000
+```
+
+#### Documentação Swagger:
+
+```bash
+http://localhost:3000/docs
 ```
