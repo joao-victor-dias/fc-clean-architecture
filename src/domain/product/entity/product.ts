@@ -1,7 +1,6 @@
 import ProductInterface from "./product.interface";
 import Entity from "../../@shared/entity/entity.abstract";
-import ProductValidator from "../validator/product.validator";
-
+import ProductValidatorFactory from "../validator/product.validator.factory";
 export default class Product extends Entity implements ProductInterface {
   private _name: string;
   private _price: number;
@@ -14,10 +13,6 @@ export default class Product extends Entity implements ProductInterface {
     this._price = price;
 
     this.validate();
-
-    if (this.notification.hasErrors()) {
-      throw new Error(this.notification.messages("product"));
-    }
   }
 
   get name(): string {
@@ -31,22 +26,18 @@ export default class Product extends Entity implements ProductInterface {
   changeName(name: string): void {
     this._name = name;
     this.validate();
-
-    if (this.notification.hasErrors()) {
-      throw new Error(this.notification.messages("product"));
-    }
   }
 
   changePrice(price: number): void {
     this._price = price;
     this.validate();
+  }
+
+  validate(): void {
+    ProductValidatorFactory.create().validate(this);
 
     if (this.notification.hasErrors()) {
       throw new Error(this.notification.messages("product"));
     }
-  }
-
-  validate(): void {
-    new ProductValidator().validate(this);
   }
 }
